@@ -27,8 +27,8 @@ export const TestimonialSection: React.FC = () => {
     },
     {
       name: 'Eduardo S.',
-      service: 'Mecânica em Geral',
-      text: 'Levei meu carro para fazer a revisão preventiva antes de viajar. Atendimento nota 10, me mandaram fotos das peças trocadas e o carro está rodando super macio. Recomendo muito!',
+      service: 'Sistema Leva e Traz',
+      text: 'Utilizei o sistema Leva e Traz da oficina. Buscaram o meu carro na minha empresa de manhã e devolveram à tarde, lavado e com o serviço pronto. Praticidade nota 10 para quem não tem tempo a perder.',
       rating: 5
     }
   ]
