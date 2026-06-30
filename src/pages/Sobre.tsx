@@ -61,7 +61,7 @@ export const Sobre: React.FC = () => {
 
           {/* Posicionamento & Valores */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-20">
-            <div className="lg:col-span-7 flex flex-col gap-6 text-left">
+            <div className="col-span-1 lg:col-span-7 flex flex-col gap-6 text-left w-full">
               <ScrollReveal variant="left">
                 <h2 className="font-[family-name:var(--font-display)] font-extrabold text-3xl sm:text-4xl text-[var(--text)] tracking-tight">
                   Sem Enrolação. Do Orçamento ao Prazo de Entrega.
@@ -73,14 +73,14 @@ export const Sobre: React.FC = () => {
                   A Funilaria Sol Brasil nasceu com uma missão clara: combater a desconfiança que muitos proprietários têm ao deixar o carro em uma oficina. Acreditamos que a honestidade e a clareza no orçamento são tão importantes quanto o alinhamento da lataria ou a qualidade do verniz.
                 </p>
                 <p className="text-[var(--text-muted)] text-sm sm:text-base leading-relaxed mt-4">
-                  Trabalhamos com profissionais experientes em funilaria artesanal (martelinho de ouro), reparos rápidos de parachoques e pintura automotiva de alto padrão. Cuidamos do seu veículo usando o que há de melhor em tecnologia e insumos automotivos, respeitando as curvas e o design original de cada fabricante.
+                  Trabalhamos com profissionais experientes em funilaria artesanal (martelinho de ouro), reparos rápidos de parachoques e pintura automotiva de alto padrão. Cuidamos do seu veículo usando o que há de melhor in tecnologia e insumos automotivos, respeitando as curvas e o design original de cada fabricante.
                 </p>
               </ScrollReveal>
             </div>
 
             {/* Destaque Diferencial */}
-            <div className="lg:col-span-5 relative">
-              <ScrollReveal variant="scale" delay={120}>
+            <div className="col-span-1 lg:col-span-5 relative w-full">
+              <ScrollReveal variant="scale" delay={120} className="w-full">
                 <div className="absolute -inset-2 rounded-[var(--radius-xl)] bg-gradient-to-tr from-[var(--solar)] to-[var(--amber)] opacity-5 blur-lg" aria-hidden="true" />
                 <Card variant="testimonial" className="p-6 md:p-8 bg-[var(--surface)] border border-[var(--border)]">
                   <span className="font-[family-name:var(--font-util)] text-[10px] font-semibold uppercase tracking-wider text-[var(--solar)] mb-2 block">

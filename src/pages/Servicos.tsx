@@ -162,26 +162,26 @@ export const Servicos: React.FC = () => {
           </ScrollReveal>
 
           {/* Grid detalhado */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
             {services.map((s, index) => (
               <div key={s.title} id={`service-${index}`}>
                 <ScrollReveal variant="scale" delay={index * 40} className="h-full">
                   <HoverGlow color="amber" intensity="subtle" className="h-full">
-                    <Card variant="default" className="p-6 md:p-8 flex flex-col justify-between h-full bg-[var(--surface)] border border-[var(--border)] relative">
-                      <div className="flex flex-col gap-6">
+                    <Card variant="default" className="p-4 sm:p-6 md:p-8 flex flex-col justify-between h-full bg-[var(--surface)] border border-[var(--border)] relative">
+                      <div className="flex flex-col gap-4 md:gap-6">
                         {/* Ícone e título */}
                         <div className="flex items-center justify-between">
-                          <div className="flex items-center gap-4">
-                            <div className="w-14 h-14 rounded-[var(--radius-md)] flex items-center justify-center bg-[rgba(255,107,53,0.08)] text-[var(--solar)] shrink-0">
+                          <div className="flex items-center gap-3 md:gap-4">
+                            <div className="w-10 h-10 md:w-14 md:h-14 rounded-[var(--radius-md)] flex items-center justify-center bg-[rgba(255,107,53,0.08)] text-[var(--solar)] shrink-0 [&_svg]:w-5 [&_svg]:h-5 md:[&_svg]:w-8 md:[&_svg]:h-8">
                               {s.icon}
                             </div>
                             <div>
                               {s.badge && (
-                                <Badge variant="solar" className="mb-1 text-[9px]">
+                                <Badge variant="solar" className="mb-0.5 text-[8px] md:text-[9px]">
                                   {s.badge}
                                 </Badge>
                               )}
-                              <h2 className="font-[family-name:var(--font-display)] font-extrabold text-2xl tracking-tight text-[var(--text)]">
+                              <h2 className="font-[family-name:var(--font-display)] font-extrabold text-xl md:text-2xl tracking-tight text-[var(--text)]">
                                 {s.title}
                               </h2>
                             </div>
@@ -189,12 +189,12 @@ export const Servicos: React.FC = () => {
                         </div>
 
                         {/* Intro */}
-                        <p className="text-[var(--text-muted)] text-sm leading-relaxed border-b border-[var(--border)] pb-4">
+                        <p className="text-[var(--text-muted)] text-xs md:text-sm leading-relaxed border-b border-[var(--border)] pb-3 md:pb-4 line-clamp-2 md:line-clamp-none">
                           {s.intro}
                         </p>
 
-                        {/* Detalhes do processo */}
-                        <div>
+                        {/* Detalhes do processo - oculto no mobile */}
+                        <div className="hidden md:block">
                           <p className="text-[var(--text)] text-xs font-semibold uppercase tracking-wider font-[family-name:var(--font-util)] mb-3">
                             O que inclui o serviço:
                           </p>
@@ -210,7 +210,7 @@ export const Servicos: React.FC = () => {
                       </div>
 
                       {/* WhatsApp contextualizado */}
-                      <div className="mt-8 border-t border-[var(--border)] pt-5">
+                      <div className="mt-4 md:mt-8 border-t border-[var(--border)] pt-4 md:pt-5">
                         <Button
                           as="a"
                           href={getWhatsAppLink(s.title)}
