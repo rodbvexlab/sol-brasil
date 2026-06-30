@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { Phone, Menu, X } from 'lucide-react'
 import { Button } from '../ui/Button'
 
@@ -17,11 +18,7 @@ interface NavbarProps {
  * - Logo + botão WhatsApp compacto (ícone) + hamburger
  * - Ao scroll > 20px: glass activado (backdrop-filter)
  * - Menu mobile: overlay fullscreen com links e CTA
- * - Keyboard trap não implementado nesta etapa (virá nas páginas)
- *
- * Desktop (md+):
- * - Logo + links de navegação + CTA WhatsApp com texto
- * - Links: Serviços, Antes & Depois, Depoimentos, Contato
+ * - Utiliza Link do react-router-dom para SPA routing sem reload
  *
  * Acessibilidade:
  * - aria-expanded no botão do menu
@@ -53,10 +50,10 @@ export const Navbar: React.FC<NavbarProps> = ({ logoText = 'Sol Brasil' }) => {
   }, [menuOpen])
 
   const navLinks = [
-    { label: 'Serviços',        href: '#servicos' },
-    { label: 'Antes & Depois',  href: '#antes-depois' },
-    { label: 'Depoimentos',     href: '#depoimentos' },
-    { label: 'Fale Conosco',    href: '#contato' },
+    { label: 'Serviços',        to: '/servicos' },
+    { label: 'Antes & Depois',  to: '/antes-depois' },
+    { label: 'Sobre Nós',       to: '/sobre' },
+    { label: 'Contato',         to: '/contato' },
   ]
 
   return (
@@ -76,8 +73,8 @@ export const Navbar: React.FC<NavbarProps> = ({ logoText = 'Sol Brasil' }) => {
           className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between gap-4"
         >
           {/* Logo */}
-          <a
-            href="/"
+          <Link
+            to="/"
             aria-label="Sol Brasil — Voltar ao início"
             className="focus-ring flex items-center gap-2.5 shrink-0"
           >
@@ -120,14 +117,14 @@ export const Navbar: React.FC<NavbarProps> = ({ logoText = 'Sol Brasil' }) => {
             <span className="font-[family-name:var(--font-display)] font-extrabold text-xl tracking-[-0.02em] text-[var(--text)]">
               {logoText}
             </span>
-          </a>
+          </Link>
 
           {/* Desktop nav links */}
           <ul className="hidden md:flex items-center gap-1 list-none m-0 p-0">
             {navLinks.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
+              <li key={link.to}>
+                <Link
+                  to={link.to}
                   className={[
                     'focus-ring px-4 py-2 rounded-[var(--radius-sm)]',
                     'text-sm font-medium text-[var(--text-muted)]',
@@ -136,7 +133,7 @@ export const Navbar: React.FC<NavbarProps> = ({ logoText = 'Sol Brasil' }) => {
                   ].join(' ')}
                 >
                   {link.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -221,15 +218,15 @@ export const Navbar: React.FC<NavbarProps> = ({ logoText = 'Sol Brasil' }) => {
           <ul className="flex flex-col gap-1 list-none m-0 p-0">
             {navLinks.map((link, i) => (
               <li
-                key={link.href}
+                key={link.to}
                 style={{ transitionDelay: menuOpen ? `${i * 40}ms` : '0ms' }}
                 className={[
                   'transition-all duration-[300ms] ease-[cubic-bezier(0.16,1,0.3,1)]',
                   menuOpen ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4',
                 ].join(' ')}
               >
-                <a
-                  href={link.href}
+                <Link
+                  to={link.to}
                   onClick={() => setMenuOpen(false)}
                   className={[
                     'focus-ring flex items-center py-4 px-2',
@@ -240,7 +237,7 @@ export const Navbar: React.FC<NavbarProps> = ({ logoText = 'Sol Brasil' }) => {
                   ].join(' ')}
                 >
                   {link.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

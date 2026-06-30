@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { Phone, MapPin, Clock } from 'lucide-react'
 import { Button } from '../ui/Button'
 import { Badge } from '../ui/Badge'
@@ -15,8 +16,7 @@ const WA_LINK   = `https://wa.me/${WA_NUMBER}?text=${WA_MSG}`
  * - 2 colunas em sm
  * - 4 colunas em lg
  *
- * Linha solar de topo divide visualmente o footer do conteúdo.
- * Sem design template genérico — linguagem de placa industrial premium.
+ * Utiliza Link do react-router-dom para SPA routing sem reload.
  */
 export const Footer: React.FC = () => {
   const services = [
@@ -47,16 +47,16 @@ export const Footer: React.FC = () => {
           {/* Col 1 — Identidade */}
           <div className="sm:col-span-2 lg:col-span-1 flex flex-col gap-5">
             <div className="flex flex-col gap-2">
-              <span className="font-[family-name:var(--font-display)] font-extrabold text-2xl tracking-[-0.02em] text-[var(--text)]">
+              <Link to="/" className="font-[family-name:var(--font-display)] font-extrabold text-2xl tracking-[-0.02em] text-[var(--text)] focus-ring">
                 Sol Brasil
-              </span>
+              </Link>
               <Badge variant="amber" dot>
                 Aberto agora
               </Badge>
             </div>
 
             <p className="text-[var(--text-muted)] text-sm leading-relaxed max-w-xs">
-              Funilaria, pintura e mecânica de quem entende de carro. Há anos cuidando de cada lataria como se fosse a nossa.
+              Funilaria, pintura e mecânica de quem entende de carro. Cuidando de cada detalhe com transparência e honestidade.
             </p>
 
             <Button
@@ -87,10 +87,10 @@ export const Footer: React.FC = () => {
               Serviços
             </h3>
             <ul className="flex flex-col gap-2.5 list-none m-0 p-0">
-              {services.map((s) => (
+              {services.map((s, index) => (
                 <li key={s}>
-                  <a
-                    href="#servicos"
+                  <Link
+                    to={`/servicos#service-${index}`}
                     className={[
                       'focus-ring text-sm text-[var(--text-muted)]',
                       'hover:text-[var(--text)] transition-colors duration-[200ms]',
@@ -102,7 +102,7 @@ export const Footer: React.FC = () => {
                       aria-hidden="true"
                     />
                     {s}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
