@@ -62,8 +62,8 @@ export const ServicesGrid: React.FC = () => {
   ]
 
   return (
-    <section className="py-20 bg-[var(--carbon)] border-t border-[var(--border)]" id="servicos">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+    <section className="py-20 bg-gradient-carbon-surface bg-industrial-grid border-t border-[var(--border)] overflow-hidden" id="servicos">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <ScrollReveal variant="up">
           <SectionHeading
             eyebrow="O Que Fazemos"

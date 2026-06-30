@@ -34,8 +34,8 @@ export const TestimonialSection: React.FC = () => {
   ]
 
   return (
-    <section className="py-20 bg-[var(--carbon)] border-t border-[var(--border)]" id="depoimentos">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+    <section className="py-20 bg-gradient-carbon-surface bg-solar-glow-section border-t border-[var(--border)] overflow-hidden" id="depoimentos">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <ScrollReveal variant="up">
           <SectionHeading
             eyebrow="Quem Confia em Nós"
@@ -48,7 +48,7 @@ export const TestimonialSection: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {testimonials.map((t, index) => (
-            <ScrollReveal key={t.name} variant="up" delay={index * 80}>
+            <ScrollReveal key={t.name} variant="fade" delay={index * 120}>
               <Card variant="testimonial" className="h-full flex flex-col justify-between">
                 <div className="flex flex-col gap-4">
                   {/* Rating Stars */}

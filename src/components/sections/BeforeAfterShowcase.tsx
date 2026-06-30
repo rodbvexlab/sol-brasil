@@ -22,8 +22,8 @@ export const BeforeAfterShowcase: React.FC = () => {
   }
 
   return (
-    <section className="py-20 bg-[var(--carbon)] border-t border-[var(--border)]" id="antes-depois">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+    <section className="py-20 bg-gradient-surface-carbon border-t border-[var(--border)] overflow-hidden" id="antes-depois">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <ScrollReveal variant="left" className="md:max-w-2xl">
             <SectionHeading
@@ -50,7 +50,7 @@ export const BeforeAfterShowcase: React.FC = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {cases.map((c, i) => (
-            <ScrollReveal key={c.id} variant="up" delay={i * 80}>
+            <ScrollReveal key={c.id} variant="left" delay={i * 90}>
               <Card variant="before-after" className="flex flex-col h-full bg-[var(--surface)] border border-[var(--border)] rounded-[var(--radius-lg)] overflow-hidden">
                 {/* Imagens comparativas side-by-side */}
                 <div className="grid grid-cols-2 h-48 border-b border-[var(--border)] relative">

@@ -10,12 +10,12 @@ const WA_LINK = `https://wa.me/${WA_NUMBER}?text=${WA_MSG}`
 
 export const CTASection: React.FC = () => {
   return (
-    <section className="py-20 bg-[var(--carbon)] border-t border-[var(--border)] overflow-hidden relative" id="contato">
-      {/* Background soft glow */}
+    <section className="py-20 bg-gradient-surface-carbon border-t border-[var(--border)] overflow-hidden relative" id="contato">
+      {/* Backlit solar flare behind the glass card */}
       <div 
-        className="absolute inset-0 pointer-events-none opacity-10"
+        className="absolute inset-0 pointer-events-none opacity-20"
         style={{
-          background: 'radial-gradient(circle 600px at 50% 50%, rgba(255, 107, 53, 0.15), transparent 80%)'
+          background: 'radial-gradient(circle 500px at 50% 50%, rgba(255, 107, 53, 0.18), transparent 80%)'
         }}
         aria-hidden="true"
       />

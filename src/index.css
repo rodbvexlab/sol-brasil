@@ -189,6 +189,47 @@ button {
   border-radius: var(--radius-sm);
 }
 
+/* --- Premium Background Utilities (ui-ux-pro-max) --- */
+
+/* Industrial grid overlay - extremely subtle blueprint lines (z-index 0 to stay behind content) */
+.bg-industrial-grid {
+  position: relative;
+}
+.bg-industrial-grid::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.006) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.006) 1px, transparent 1px);
+  background-size: 80px 80px;
+  background-position: center;
+  z-index: 0;
+}
+
+/* Solar glow overlay - soft ambient light reflection */
+.bg-solar-glow-section {
+  position: relative;
+}
+.bg-solar-glow-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle 600px at 50% 25%, rgba(255, 107, 53, 0.025), transparent 85%);
+  z-index: 0;
+}
+
+/* Smooth color transitions between sections to avoid harsh cuts */
+.bg-gradient-carbon-surface {
+  background: linear-gradient(to bottom, var(--carbon) 0%, var(--surface) 100%);
+}
+
+.bg-gradient-surface-carbon {
+  background: linear-gradient(to bottom, var(--surface) 0%, var(--carbon) 100%);
+}
+
 /* Scrollbar personalizada */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--carbon); }
