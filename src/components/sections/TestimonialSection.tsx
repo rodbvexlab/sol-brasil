@@ -28,7 +28,7 @@ export const TestimonialSection: React.FC = () => {
     {
       name: 'Eduardo S.',
       service: 'Sistema Leva e Traz',
-      text: 'Utilizei o sistema Leva e Traz da oficina. Buscaram o meu carro na minha empresa de manhã e devolveram à tarde, lavado e com o serviço pronto. Praticidade nota 10 para quem não tem tempo a perder.',
+      text: 'Trabalho o dia inteiro e não tinha como levar o carro pessoalmente. Eles buscaram na minha empresa de manhã e devolveram à tarde, lavado e com o orçamento certinho do que tinha combinado. Resolveu mesmo.',
       rating: 5
     }
   ]
