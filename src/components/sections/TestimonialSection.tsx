@@ -26,9 +26,9 @@ export const TestimonialSection: React.FC = () => {
       rating: 5
     },
     {
-      name: 'Marcos A.',
-      service: 'Polimento e Cristalização',
-      text: 'Fiz a cristalização da pintura para vender o carro. O carro ficou tão brilhoso e parecendo novo que acabei decidindo ficar com ele mais um ano. Recomendo demais o trabalho deles.',
+      name: 'Eduardo S.',
+      service: 'Mecânica em Geral',
+      text: 'Levei meu carro para fazer a revisão preventiva antes de viajar. Atendimento nota 10, me mandaram fotos das peças trocadas e o carro está rodando super macio. Recomendo muito!',
       rating: 5
     }
   ]

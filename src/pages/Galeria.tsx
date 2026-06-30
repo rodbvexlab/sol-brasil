@@ -9,15 +9,7 @@ import { SectionHeading } from '../components/ui/SectionHeading'
 import { ScrollReveal } from '../components/motion/ScrollReveal'
 import { Image as ImageIcon, Phone } from 'lucide-react'
 
-interface GalleryItem {
-  id: string
-  title: string
-  category: string
-  beforeBg: string
-  afterBg: string
-  beforeDesc: string
-  afterDesc: string
-}
+import { galleryItems } from '../data/galleryData'
 
 export const Galeria: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('todos')
@@ -32,63 +24,6 @@ export const Galeria: React.FC = () => {
     { id: 'martelinho', label: 'Martelinho de Ouro' },
     { id: 'polimento', label: 'Polimento & Cristalização' },
     { id: 'parachoques', label: 'Recuperação de Parachoques' }
-  ]
-
-  const galleryItems: GalleryItem[] = [
-    {
-      id: 'g-1',
-      title: 'Paralama Traseiro e Porta — Honda Civic',
-      category: 'funilaria',
-      beforeBg: 'linear-gradient(135deg, #1f1f23 0%, #151518 100%)',
-      afterBg: 'linear-gradient(135deg, #2c3540 0%, #161c24 100%)',
-      beforeDesc: 'Impacto lateral, deformação acentuada do vinco original.',
-      afterDesc: 'Alinhamento mecânico, funilaria artesanal e pintura original.'
-    },
-    {
-      id: 'g-2',
-      title: 'Amassado na Porta — Toyota Corolla',
-      category: 'martelinho',
-      beforeBg: 'linear-gradient(135deg, #1f1f23 0%, #151518 100%)',
-      afterBg: 'linear-gradient(135deg, #40352c 0%, #201a15 100%)',
-      beforeDesc: 'Amassado sem quebra de tinta provocado por outro veículo.',
-      afterDesc: 'Resolução em 3 horas utilizando ferramentas de martelinho de ouro.'
-    },
-    {
-      id: 'g-3',
-      title: 'Parachoques Trincado — Jeep Compass',
-      category: 'parachoques',
-      beforeBg: 'linear-gradient(135deg, #1f1f23 0%, #151518 100%)',
-      afterBg: 'linear-gradient(135deg, #262e26 0%, #121812 100%)',
-      beforeDesc: 'Para-choque dianteiro trincado no encaixe do farol de milha.',
-      afterDesc: 'Solda plástica e pintura localizada. Encaixe original perfeito.'
-    },
-    {
-      id: 'g-4',
-      title: 'Paralama Dianteiro e Capô — Chevrolet Onix',
-      category: 'funilaria',
-      beforeBg: 'linear-gradient(135deg, #1f1f23 0%, #151518 100%)',
-      afterBg: 'linear-gradient(135deg, #202b36 0%, #0d1318 100%)',
-      beforeDesc: 'Colisão com danos significativos no paralama e parte do capô.',
-      afterDesc: 'Substituição do paralama, funilaria no capô e pintura combinada.'
-    },
-    {
-      id: 'g-5',
-      title: 'Recuperação de Brilho — Hyundai HB20',
-      category: 'polimento',
-      beforeBg: 'linear-gradient(135deg, #1f1f23 0%, #151518 100%)',
-      afterBg: 'linear-gradient(135deg, #38312e 0%, #1e1a18 100%)',
-      beforeDesc: 'Pintura queimada de sol, marcas de lavagem e opacidade geral.',
-      afterDesc: 'Polimento em 3 etapas e aplicação de selante de alta proteção.'
-    },
-    {
-      id: 'g-6',
-      title: 'Teto Amassado (Granizo) — Volkswagen Polo',
-      category: 'martelinho',
-      beforeBg: 'linear-gradient(135deg, #1f1f23 0%, #151518 100%)',
-      afterBg: 'linear-gradient(135deg, #2d2d35 0%, #16161a 100%)',
-      beforeDesc: 'Múltiplos pequenos amassados na folha do teto causados por granizo.',
-      afterDesc: 'Recuperação completa sem alterar a estrutura interna ou teto solar.'
-    }
   ]
 
   const filteredItems = selectedCategory === 'todos'

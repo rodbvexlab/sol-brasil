@@ -5,48 +5,21 @@ import { Button } from '../ui/Button'
 import { Badge } from '../ui/Badge'
 import { SectionHeading } from '../ui/SectionHeading'
 import { ScrollReveal } from '../motion/ScrollReveal'
-
-interface ShowcaseItem {
-  id: string
-  title: string
-  category: string
-  // Usamos SVG placeholders com cores customizadas para simular carro real batido e recuperado
-  beforeBg: string
-  afterBg: string
-  beforeText: string
-  afterText: string
-}
+import { galleryItems } from '../../data/galleryData'
 
 export const BeforeAfterShowcase: React.FC = () => {
-  const cases: ShowcaseItem[] = [
-    {
-      id: 'case-1',
-      title: 'Porta Lateral e Paralama — Honda Civic',
-      category: 'Funilaria e Pintura',
-      beforeBg: 'linear-gradient(135deg, #1f1f23 0%, #151518 100%)',
-      afterBg: 'linear-gradient(135deg, #2c3540 0%, #161c24 100%)',
-      beforeText: 'Colisão profunda, lataria deformada e tinta descascada.',
-      afterText: 'Lataria alinhada a laser e pintura idêntica à de fábrica.'
-    },
-    {
-      id: 'case-2',
-      title: 'Amassado na Tampa Traseira — Toyota Corolla',
-      category: 'Martelinho de Ouro',
-      beforeBg: 'linear-gradient(135deg, #1f1f23 0%, #151518 100%)',
-      afterBg: 'linear-gradient(135deg, #40352c 0%, #201a15 100%)',
-      beforeText: 'Amassado de estacionamento (sem vinco na chapa).',
-      afterText: 'Recuperado 100% sem repintura em apenas 3 horas.'
-    },
-    {
-      id: 'case-3',
-      title: 'Parachoques Dianteiro Trincado — Jeep Compass',
-      category: 'Recuperação de Parachoques',
-      beforeBg: 'linear-gradient(135deg, #1f1f23 0%, #151518 100%)',
-      afterBg: 'linear-gradient(135deg, #262e26 0%, #121812 100%)',
-      beforeText: 'Trinca estrutural de 15cm e ralados profundos.',
-      afterText: 'Soldagem plástica, pintura localizada e fixação refeita.'
+  // Exibimos exatamente os 3 primeiros casos da nossa fonte única
+  const cases = galleryItems.slice(0, 3)
+
+  const getCategoryLabel = (category: string) => {
+    switch (category) {
+      case 'funilaria': return 'Funilaria e Pintura'
+      case 'martelinho': return 'Martelinho de Ouro'
+      case 'polimento': return 'Polimento e Cristalização'
+      case 'parachoques': return 'Recuperação de Parachoques'
+      default: return category
     }
-  ]
+  }
 
   return (
     <section className="py-20 bg-[var(--carbon)] border-t border-[var(--border)]" id="antes-depois">
@@ -117,7 +90,7 @@ export const BeforeAfterShowcase: React.FC = () => {
                 <div className="p-5 flex flex-col justify-between flex-grow gap-4">
                   <div>
                     <span className="font-[family-name:var(--font-util)] text-[10px] font-semibold uppercase tracking-wider text-[var(--amber)]">
-                      {c.category}
+                      {getCategoryLabel(c.category)}
                     </span>
                     <h3 className="font-[family-name:var(--font-display)] font-bold text-lg text-[var(--text)] tracking-tight mt-1 mb-3">
                       {c.title}
@@ -127,11 +100,11 @@ export const BeforeAfterShowcase: React.FC = () => {
                   <div className="grid grid-cols-2 gap-3 text-xs border-t border-[var(--border)] pt-3">
                     <div>
                       <p className="text-[var(--text-faint)] uppercase font-semibold tracking-wider mb-1 font-[family-name:var(--font-util)]">Problema</p>
-                      <p className="text-[var(--text-muted)] leading-relaxed">{c.beforeText}</p>
+                      <p className="text-[var(--text-muted)] leading-relaxed">{c.beforeDesc}</p>
                     </div>
                     <div>
                       <p className="text-[var(--solar)] uppercase font-semibold tracking-wider mb-1 font-[family-name:var(--font-util)]">Solução</p>
-                      <p className="text-[var(--text)] leading-relaxed">{c.afterText}</p>
+                      <p className="text-[var(--text)] leading-relaxed">{c.afterDesc}</p>
                     </div>
                   </div>
                 </div>
