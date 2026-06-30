@@ -199,6 +199,18 @@ button {
 ::-webkit-scrollbar-thumb:hover { background: var(--solar); }
 
 /* =========================================================
+   TOUCH STATES — Active pseudo-class para mobile
+   Tailwind não suporta `active:before:` em classes compostas.
+   Esta classe resolve o caso do card de serviço no toque.
+   ========================================================= */
+
+/* Linha solar no topo do card de serviço: revela no toque (mobile)
+   e no hover (desktop). Complementa as classes Tailwind do Card.tsx. */
+.card-solar-touch:active::before {
+  opacity: 1 !important;
+}
+
+/* =========================================================
    ANIMAÇÕES — Artesanais, não genéricas
    Cada seção tem assinatura levemente distinta
    ========================================================= */
@@ -239,15 +251,9 @@ button {
   }
 }
 
-/* Glow pulse — para o botão CTA principal */
-@keyframes pulse-solar {
-  0%, 100% {
-    box-shadow: 0 0 16px rgba(255, 107, 53, 0.2), 0 4px 24px rgba(255, 107, 53, 0.1);
-  }
-  50% {
-    box-shadow: 0 0 32px rgba(255, 107, 53, 0.35), 0 4px 32px rgba(255, 107, 53, 0.2);
-  }
-}
+/* Glow pulse REMOVIDO — substituído por glow estático no box-shadow do Button.
+   Um pulse infinito conflita com o princípio de movimento artesanal/sutil do projeto.
+   O calor solar é comunicado pela sombra ambiente, não pelo piscar. */
 
 /* Float suave — WhatsApp button */
 @keyframes float {
